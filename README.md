@@ -1,4 +1,4 @@
-## Projetos do curso da ROCKETSEAT
+## Projetos do curso da ROCKETSEAT :rocket:
 
 Esse repositório tem como objetivo apresentar os conhecimentos apresentados durante o curso. 
 Os módulos e desafios serão adicionados conforme forem concluídos.
