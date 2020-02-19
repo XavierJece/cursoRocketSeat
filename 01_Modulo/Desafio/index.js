@@ -9,6 +9,12 @@ server.use(express.json());
 function idExists(req, res, next){
     const {id} = req.params;
 
+    /**
+     * Correção:
+     * A busca poderia ser:
+     * const project = projects.find(p => p.id == id);s
+    */
+
     projects.forEach(project => {
         if(project.id === id){
             next();
@@ -31,6 +37,12 @@ function idTitleCorrect(req, res, next){
 
 
 server.use((req, res,next) => {
+
+    /**
+     * Correção
+     * A contagem podia ser feita:
+     * console.count("Número de requisições");
+    */
     countRequisitions = countRequisitions + 1;
     console.log(countRequisitions + "ª Requisition");
     next();
@@ -74,6 +86,11 @@ server.put('/projects/:id', idExists, (req, res) => {
     const {id} = req.params 
     const {title} = req.body;
 
+    /**
+     * Correção:
+     * A busca poderia ser:
+     * const project = projects.find(p => p.id == id);s
+    */
     projects.forEach(project => {
         if(project.id === id){
             project.title = title;
@@ -86,6 +103,11 @@ server.delete('/projects/:id', idExists, (req, res) => {
     const {id} = req.params;
     let index = 0;
 
+    /**
+     * Correção:
+     * A busca poderia ser:
+     * const project = projects.find(p => p.id == id);s
+    */
     projects.forEach(project => {
         if(project.id === id){
             projects.splice(index, 1);
@@ -99,6 +121,11 @@ server.post('/projects/:id/tasks', idExists, (req, res) => {
     const {id} = req.params;
     const {title} = req.body;
     
+    /**
+     * Correção:
+     * A busca poderia ser:
+     * const project = projects.find(p => p.id == id);s
+    */
     projects.forEach(project => {
         if(project.id === id){
             project.tasks.push(title);
