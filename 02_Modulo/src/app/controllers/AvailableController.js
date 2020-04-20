@@ -9,6 +9,7 @@ import {
 } from 'date-fns';
 import { Op } from 'sequelize';
 import Appointment from '../models/Appointment';
+import User from '../models/User';
 
 class AvailableController {
     async index(req, res) {
@@ -17,6 +18,16 @@ class AvailableController {
         if (!date) {
             return res.status(400).json({
                 error: 'Ivalid date',
+            });
+        }
+
+        const providerExist = await User.findOne({
+            where: { id: req.params.providerId, provider: true },
+        });
+
+        if (!providerExist) {
+            return res.status(404).json({
+                error: 'Not fount',
             });
         }
 
