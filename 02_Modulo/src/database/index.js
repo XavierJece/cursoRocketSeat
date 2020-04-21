@@ -37,7 +37,7 @@ class Database {
                     useFindAndModify: true,
                 }
             )
-            .then(() => console.log('MongoDB connected...'))
+            .then()
             .catch(err => console.log(err));
     }
 }
