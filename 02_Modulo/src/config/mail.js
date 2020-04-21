@@ -5,7 +5,7 @@ export default {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
     },
-    secure: false, // Para usar SSL
+    secure: true, // Para usar SSL
     default: {
         from: 'Equipe GoBarber <noreplay@gobarber.com>',
     },
